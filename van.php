@@ -1,23 +1,24 @@
 <?php
 
 # First attempt at a page to neatly display the contents of batteries-climate-latest.csv as a webpage
-#
 
-$filename = "./batteries-climate-latest.csv";
-    $csv = array_map('str_getcsv', file($filename));
-    array_walk($csv, function(&$a) use ($csv) {
-      $a = array_combine($csv[0], $a);
-    });
-    array_shift($csv);
+$file_latest = "./batteries-climate-latest.csv";
+$csv         = array_map('str_getcsv', file($file_latest));
+array_walk($csv, function(&$a) use ($csv)
+{
+    $a = array_combine($csv[0], $a);
+});
+array_shift($csv);
 
-$timestamp = $csv[0]['timestamp'];
+$timestamp   = $csv[0]['timestamp'];
 $temperature = $csv[0]['temperature_in_celsius'];
-$humidity = $csv[0]['relative_humidity'];
+$humidity    = $csv[0]['relative_humidity'];
 
 echo "<html>
 <head>
 <meta http-equiv=refresh content=10 />
 <title>Van Climate</title>
+<link rel=stylesheet type=text/css href=van.css>
 </head>
 <body>";
 echo "<h2>Current climate in the van:</h2>";

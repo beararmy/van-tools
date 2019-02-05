@@ -1,0 +1,11 @@
+body {
+    background-color: lightblue;
+    font-family: sans-serif;
+    background-image: url("cold.png");
+    background-repeat: no-repeat;
+    background-position: 50px 150px;
+  }
+  h1 {
+    color: navy;
+    margin-left: 20px;
+  }  
